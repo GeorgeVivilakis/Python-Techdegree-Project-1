@@ -9,6 +9,7 @@ Project 1 - The Number Guessing Game
 # I used time for the loading times between each user action.
 # I made a startup menu for the user's convenience.
 # User can either type upper or lower keys during the menu options.
+# Added play again option once game is over.
 
 import time
 import random
@@ -72,9 +73,9 @@ def start_game():
         result = check_guess(guess, secret_num)
 
         if result == "The number is correct!":
-            print(f"You got it!"
-                  "The secret number {secret_num} within {attempts} attempts."
-                  "Congratulations!\n--GAMEOVER--")
+            print(f"Bingo! You got the secret number {secret_num} within {attempts} attempts.\n"
+                  "Congratulations, you won the game!\n--GAMEOVER--")
+            print()
             won = True
             break
 
@@ -87,6 +88,26 @@ def start_game():
         print(f"Bummer! You ran out of attempts. The secret number was {secret_num}")
         print("Thank you for playing. ""Try again another time.\n--GAME OVER--")
         print()
+
+    while True:
+        play_again = input("Do you want to play again? (Enter Y/N): ")
+        if play_again == "y" or play_again == "Y":
+            print("Loading game...")
+            print()
+            time.sleep(3)
+            start_game()
+
+        if play_again == "n" or play_again == "N":
+            time.sleep(1)
+            print("You just left the game.")
+            print()
+            exit()
+
+        else:
+            time.sleep(.3)
+            print("Invalid input.")
+            print()
+            continue
 
 
 print("""
