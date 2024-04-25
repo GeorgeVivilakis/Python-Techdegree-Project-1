@@ -66,6 +66,7 @@ def check_guess(guess, secret_num):
 def start_game():
     attempts = 0
     won = False
+    secret_num = random.randint(lower_num, higher_num)
 
     while attempts < max_attempts:
         attempts += 1
